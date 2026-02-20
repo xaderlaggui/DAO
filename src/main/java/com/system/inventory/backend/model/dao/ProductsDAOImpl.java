@@ -71,20 +71,39 @@ public class ProductsDAOImpl implements ProductsDAO{
 	@Override
 	public int insert(Products user) throws SQLException {
 		Connection con = Database.getConnection();
-		String sql = "insert into ";
-		return 0;
+		String sql = "insert into products (product_name, category_id, quantity, price, supplier) values (?,?,?,?,?)";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, user.getProduct_name());
+		ps.setInt(2, user.getCategory_id());
+		ps.setInt(3, user.getQuantity());
+		ps.setInt(4, user.getPrice());
+		ps.setString(5, user.getSupplier());
+		return ps.executeUpdate();
 	}
 
 	@Override
 	public int update(Products user) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		Connection con = Database.getConnection();
+		String sql = "update products set product_name=?, category_id=?, quantity=?, price=?, supplier-? where product_id=?";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, user.getProduct_name());
+		ps.setInt(2, user.getCategory_id());
+		ps.setInt(3, user.getQuantity());
+		ps.setInt(4, user.getPrice());
+		ps.setString(5, user.getSupplier());
+		ps.setInt(6, user.getProduct_id());
+		return ps.executeUpdate();
 	}
 
 	@Override
 	public int delete(Products user) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		Connection con = Database.getConnection();
+		String sql = "delete from products where product_id=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, user.getProduct_id());
+		return ps.executeUpdate();
 	}
 
 }
