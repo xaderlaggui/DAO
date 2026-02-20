@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.cj.protocol.Resultset;
 import com.system.inventory.backend.model.Categories;
 import com.system.inventory.backend.model.Database;
 

@@ -78,7 +78,13 @@ public class InventoryTransactionsDAOImpl implements InventoryTransactionsDAO {
 
 	@Override
 	public int delete(InventoryTransactions user) throws SQLException {
-		// TODO Auto-generated method stub
+		Connection con = Database.getConnection();
+		
+		String sql = "delete from inventory_transactions where transaction_id=?";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		
+		ps.setInt(1, user.getTransaction_id());
 		return 0;
 	}
 
