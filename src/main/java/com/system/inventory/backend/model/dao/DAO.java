@@ -1,17 +1,20 @@
 package com.system.inventory.backend.model.dao;
-import com.system.inventory.backend.model.*;
-
 import java.sql.SQLException;
 import java.util.List;
 
-public interface DAO<User> {
+public interface DAO<T> {
 	
-	User get(int id) throws SQLException;
-	List<User> getALL() throws SQLException;
-	int save (User user) throws SQLException;
-	int insert (User user) throws SQLException;
-	int update (User user) throws SQLException;
-	int delete (User user) throws SQLException;
+	T get(int id) throws SQLException;
+	
+	List<T> getALL() throws SQLException;
+	
+	int save (T user) throws SQLException;
+	
+	int insert (T user) throws SQLException;
+	
+	int update (T user) throws SQLException;
+	
+	int delete (T user) throws SQLException;
 	
 
 }
