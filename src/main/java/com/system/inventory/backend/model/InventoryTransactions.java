@@ -15,6 +15,9 @@ public class InventoryTransactions {
 		this.transaction_type = transaction_type;
 		this.quantity = quantity;
 	}
+	public InventoryTransactions() {
+		// TODO Auto-generated constructor stub
+	}
 	public Integer getTransaction_id() {
 		return transaction_id;
 	}

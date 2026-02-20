@@ -4,6 +4,10 @@ public class Categories {
 	private Integer category_id;
 	private String category_name;
 	private String description;
+	
+public Categories() {
+	
+}
 	public Categories(Integer category_id, String category_name, String description) {
 		super();
 		this.category_id = category_id;
