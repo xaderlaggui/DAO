@@ -16,7 +16,7 @@ public class InventoryTransactionsDAOImpl implements InventoryTransactionsDAO {
 	public InventoryTransactions get(int transaction_id) throws SQLException {
 		Connection con = Database.getConnection();
 		InventoryTransactions inventory = null;
-
+d
 		String sql = "select * from inventory_transaction where transaction_id=?";
 
 		PreparedStatement ps = con.prepareStatement(sql);
