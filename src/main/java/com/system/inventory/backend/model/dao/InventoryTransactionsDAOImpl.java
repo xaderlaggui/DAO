@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.system.inventory.backend.model.Database;
@@ -35,8 +36,26 @@ public class InventoryTransactionsDAOImpl implements InventoryTransactionsDAO {
 
 	@Override
 	public List<InventoryTransactions> getALL() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		Connection con = Database.getConnection();
+		List<InventoryTransactions> list = new ArrayList<>();
+		
+		String sql = "select * from inventory_transactions";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		
+		while (rs.next()) {
+			InventoryTransactions inventory = new InventoryTransactions();
+			inventory.setTransaction_id(rs.getInt("transaction_id"));
+			inventory.setProduct_id(rs.getInt("product_id"));
+			inventory.setUser_id(rs.getInt("user_id"));
+			inventory.setTransaction_type(rs.getString("transaction_type"));
+			inventory.setQuantity(rs.getInt("quantity"));
+			
+			list.add(inventory);
+		}
+		
+		return list;
 	}
 
 	@Override
